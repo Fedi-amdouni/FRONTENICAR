@@ -34,15 +34,21 @@ export class classService {
               page: page
             }
           }
-          return this.httpClient.get<Class[]>(<string>CLASS_URL+'/list')
+          return this.httpClient.get<Class[]>(<string>CLASS_URL)
           .pipe(
             tap((response) => console.log(response)),
             catchError((error) => throwError(error))
           );
       }
       listTheClasses(){
-        const url = `${CLASS_URL}/list`;
+        const url = `${CLASS_URL}`;
         return this.httpClient.get<Class[]>(url);
+      }
+
+      deleteClass(index:number){
+        const url = `${CLASS_URL}/${index}`;
+        return this.httpClient.delete<Class[]>(url);
+
       }
       
 

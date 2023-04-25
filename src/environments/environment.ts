@@ -8,7 +8,8 @@ export const env: { [s: string]: string | null } = {
   user_url:'http://localhost:8081/users',
   class_url:'http://localhost:8081/classes',
   notesCC_url:'http://localhost:8081/notesCC',
-  notesExam_url:'http://localhost:8081/notesEXAMS'
+  notesExam_url:'http://localhost:8081/notesEXAMS',
+  emplois_url:'file///C:\Users\amdfa\OneDrive\Bureau\emplois\Informatique.pdf'
 
   
 };
@@ -19,7 +20,8 @@ export const environment = {
   userUrl:env['user_url'],
   classUrl:env['class_url'],
   notesCCUrl:env['notesCC_url'],
-  notesEXAMSUrl : env['notesExam_url']
+  notesEXAMSUrl : env['notesExam_url'],
+  emploisUrl:env['emplois_url']
 
 };
 

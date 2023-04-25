@@ -116,7 +116,7 @@ select option[disabled]:first-child {
   
   /* Button 1 */
   .btn-1 {
-    background: #3498db;
+    background: #10405f;
     color: #fff;
   }
   
@@ -181,6 +181,9 @@ select option[disabled]:first-child {
   .icon-user:before {
     content: "\f007";
   }
+  .icon-delete:before {
+    content: "\f1f8";
+}
 
   
   

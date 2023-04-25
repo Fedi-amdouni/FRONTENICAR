@@ -38,14 +38,15 @@ export class ListClassesComponent {
   pageSizeOptions: number[] = [5, 1, 25, 100];
   submitted = false;
   error= '';
-  selectedClass: any = 1;
+  selectedClass: any = 0;
   selectedClassId: number =0;
   idEtu:number=0;
   idProf:number=0;
   note:number=0;
   isProfesseursSelected = false;
   role:any=""
-  updateUserForm!:FormGroup
+  updateUserForm!:FormGroup;
+  isAdmin=false;
   
 
 
@@ -63,7 +64,9 @@ export class ListClassesComponent {
     this.dataSource = new MatTableDataSource<any>([]);
    
   }
+
   ngOnInit(): void {
+    this.isAdmin=this.authenticationService.isAdmin();
     this.role=this.authenticationService.myRole();
 
     this.updateUserForm=this.formBuilder.group({
@@ -160,6 +163,7 @@ open(content: any) {
   }, (reason) => {
     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
   });
+  console.log(this.classes)
 }
 
 
@@ -168,7 +172,32 @@ open(content: any) {
       location.reload();
     })
   }
+  removeClass(){
+    this.classService.deleteClass(this.selectedClass.id).subscribe(
+      (data)=>{
+        Swal.fire({
+          icon: 'success',
+          title: 'Classe supprimée avec succés',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        location.reload();
 
+        console.log("classe Supprimé")
+      },
+      error=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Vous devez supprimer les étudiants et professeurs associés ',
+          
+        })
+        console.log("classe non supprimé",error)
+
+      }
+
+    )
+  }
 
 
 
@@ -213,19 +242,22 @@ open(content: any) {
       console.log('Error fetching students:', error);
       this.isLoading = false;
     });
-  
-   
-    
-    
-
-    
-
   }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+}
+
 
   update(index:number){
     console.log(index);
+    console.log(this.updateUserForm.value)
+    console.log(this.classes);
     this.userService.patchUser(this.updateUserForm.value ,index).subscribe(
       (user: User) => {
+        
+        
         Swal.fire({
           icon: 'success',
           title: 'Utilisateur modifié avec succés',

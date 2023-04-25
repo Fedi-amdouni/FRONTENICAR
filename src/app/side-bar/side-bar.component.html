@@ -2,6 +2,10 @@
      design from HTML5 Up! https://html5up.net/hyperspace -->
      <link  href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
+     <pdf-viewer [src]="url"
+     [render-text]="true"
+     style="display: block;"
+></pdf-viewer>
      <main class="main">
         <aside class="sidebar">
             <br>
@@ -40,6 +44,15 @@
               
             </a>
           </li>
+          <br *ngIf="isProfesseur || isEtudiant">
+          <li *ngIf="isProfesseur || isEtudiant" class="nav-item nav-item-submenu"  style="position: relative; left:15px">
+            <a (click)="fire()" href="{{this.url}}" target="_blank" class="nav-link">
+              <mat-icon>schedule</mat-icon>
+              <span  style="position: relative; top:-4px" >
+                Emploi
+              </span>
+            </a>
+          </li>
           
           <br *ngIf="isProfesseur || isEtudiant">
           <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
@@ -54,7 +67,7 @@
           <br>
           <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
             <a *ngIf="isAdmin"  href="/home/addClass" class="nav-link">
-              <mat-icon>group</mat-icon>
+              <mat-icon>add_circle_outline</mat-icon>
               <span  style="position: relative; top:-4px" >
                 Ajouter une Classe
               </span>
@@ -65,16 +78,19 @@
           
           <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
             <a *ngIf="isAdmin" href="/home/addUser" class="nav-link">
-              <mat-icon>group</mat-icon>
+              <mat-icon>person_add</mat-icon>
               <span  style="position: relative; top:-4px" >
                 Ajouter un utilisateur
               </span>
             </a>
           </li>
-        
+         
+          <br *ngIf="isAdmin">
+          <br *ngIf="isAdmin">
+          <br *ngIf="isAdmin">
+          <br *ngIf="isAdmin">
 
-
-          <br><br>
+         
           
 
           <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
@@ -85,6 +101,19 @@
               </span>
             </a>
           </li>
+          <br>
+          <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
+           
+              <mat-icon>face</mat-icon>
+              <span  style="position: relative; top:-4px" >
+                User:{{this.nom}} {{this.prenom}}
+              </span>
+            
+          </li>
+         
+
+
+
           
           
         

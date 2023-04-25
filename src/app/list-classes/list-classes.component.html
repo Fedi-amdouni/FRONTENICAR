@@ -16,7 +16,10 @@
  <button id="etudiantsBtn"  style="position: relative ; left:100px" class="btn btn-1 btn-sep icon-user">Etudiants</button>
  <button id="professeursBtn" style="position: relative ; left:400px" class="btn btn-1 btn-sep icon-user">Professeurs</button>
  
- 
+ <mat-form-field style="position: relative; right:200px;top:20px ;background-color: grey;">
+  <mat-label>Filter</mat-label>
+  <input style="color: whitesmoke;" (keyup)="applyFilter($event)" matInput placeholder="" #input>
+</mat-form-field>
  
   <table style="position: relative; left:20px" mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
 
@@ -165,6 +168,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
   
+  <button *ngIf="isAdmin" id="suppression" (click)="removeClass()" style="position: relative ;top:200px; left:390px ; background-color: rgb(124, 34, 34);" class="btn btn-1 btn-sep icon-delete">Supprimer la classe</button>
   
   

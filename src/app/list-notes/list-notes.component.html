@@ -4,7 +4,7 @@
 
 
 <div class="dropdown">
-    <select name="selectedClass" (change)="onClassChange(selectedClass)" [(ngModel)]="selectedClass" class="dropbtn">
+    <select name="selectedClass" (change)="onClassChange(selectedClass)" [(ngModel)]="selectedClass" class="dropbtn2">
         <option value="" selected disabled hidden>Choisir votre classe</option>
         <option *ngFor="let class of classes" [ngValue]="class">{{ class.nom }}</option>
     </select>
@@ -16,12 +16,16 @@
         <option *ngFor="let matiere of matieres" [ngValue]="matiere">{{ matiere }}</option>
     </select>
 </div>
+
  
  
  
 
 
- 
+<mat-form-field style="position: relative; left:160px;top:15px ;background-color: grey;">
+  <mat-label>Filter</mat-label>
+  <input style="color: whitesmoke;" (keyup)="applyFilter($event)" matInput  >
+</mat-form-field>
  
  
   <table style="position: relative; left:20px" mat-table [dataSource]="dataSource" class="mat-elevation-z8 " tabindex="0">
@@ -102,6 +106,7 @@
     <tr class="tete" mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
     <tr class="ligne" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
   
   
   

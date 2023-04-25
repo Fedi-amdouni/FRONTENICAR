@@ -75,6 +75,12 @@
             
           },
           error: (error) =>{
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Utilisateur non ajouté',
+              footer: '<a href="">Why do I have this issue?</a>'
+            })
             console.log('ADD failed',error);
             
             // Handle error here

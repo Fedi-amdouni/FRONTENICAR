@@ -92,6 +92,16 @@ svg path{
     position: relative;
     left:0px
   }
+  .dropbtn2 {
+    background-color: midnightblue;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border:rad;
+    cursor: pointer;
+    position: relative;
+    left:900px
+  }
 
 .dropbtn {
     background-color: midnightblue;
@@ -291,3 +301,5 @@ select option[disabled]:first-child {
     border-style: groove;
     
   }
+
+  

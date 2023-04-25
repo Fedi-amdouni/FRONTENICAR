@@ -3,6 +3,7 @@ export interface Class{
     nom:string,
     niveau:number,
     département:string,
-    users:[]
+    users:[],
+    url:string
 
 }

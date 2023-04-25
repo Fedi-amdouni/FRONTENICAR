@@ -39,7 +39,10 @@ export class AddClassComponent {
   }
   onSubmit1() {
     this.submitted = true;
-    
+    if (this.addClassForm.value != null) {
+      const département = this.addClassForm.get('département')!.value;
+    }
+
     console.log(this.addClassForm.value)
     this.classService
       .addClass(this.addClassForm.value)
@@ -61,10 +64,17 @@ export class AddClassComponent {
             showConfirmButton: false,
             timer: 1500
           });
+          location.reload();
           
           
         },
         error: (error) =>{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Classe non ajoutée',
+            
+          })
           console.log('ADD failed',error);
           
           // Handle error here

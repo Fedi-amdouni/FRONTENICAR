@@ -230,6 +230,10 @@ export class ListNotesComponent {
       this.fetchStudents();
     }
   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+}
   fetchStudents() {
     this.isLoading = true;
     this.classService.getStudentsByClassId(this.selectedClassId).subscribe(data => {
@@ -345,4 +349,20 @@ export class ListNotesComponent {
     }
     }
   }
+
+  removeClass(){
+    this.classService.deleteClass(this.selectedClass.id).subscribe(
+      (data)=>{
+
+        console.log("classe Supprimé")
+      },
+      error=>{
+        console.log("classe non supprimé",error)
+
+      }
+
+    )
+  }
+
+
 }

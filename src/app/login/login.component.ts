@@ -38,8 +38,7 @@ export class LoginComponent implements OnInit {
   
 
   onSubmit() {
-    this.prenom=this.authenticationService.myPrenom();
-    console.log(this.prenom);
+   
     
     
     this.submitted = true;
@@ -59,9 +58,13 @@ export class LoginComponent implements OnInit {
       
       .subscribe({
         next: (data: User) => {
+          this.prenom=this.authenticationService.myPrenom();
+          console.log(this.prenom);
+          this.nom=this.authenticationService.myNom();
+
           Swal.fire({
             icon: 'success',
-            text: `Soyez les bienvenus ${this.prenom}`,
+            text: `Soyez les bienvenus ${this.prenom} ${this.nom}`,
             showConfirmButton: false,
             timer: 1500
           });

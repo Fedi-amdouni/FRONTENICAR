@@ -23,6 +23,11 @@ import { ListNotesComponent } from './list-notes/list-notes.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { GcPdfViewer } from '@grapecity/gcpdfviewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 
@@ -59,7 +64,6 @@ children:[
     NotesComponent,
     RendreNotesComponent,
     ListNotesComponent
-   
   ],
   imports: [LocalStorageModule.forRoot({
     prefix: 'my-app',
@@ -74,6 +78,11 @@ children:[
     MatTableModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    PdfViewerModule,
+    MatInputModule,
+    
+    
+    
     
   
     RouterModule.forRoot(routes)
