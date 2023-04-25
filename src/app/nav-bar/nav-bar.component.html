@@ -1,0 +1,50 @@
+<nav class="nav">
+    <div class="container">
+        <img src="http://www.enicarthage.rnu.tn/assets/images/logo.png">
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                <li><a href="#APROPOS"> À propos</a></li>
+                <li><a href="#FORMATIONS">Formations</a></li>
+                <li><a href="#ACTUALITES">Actualités</a></li>
+                <li><a href="#PARTENAIRES">Partenaires</a></li>
+                <li><a href="#CONTACT">Contact</a></li>
+                <li><a href="login">Login</a></li>
+            </ul>
+        </div>
+        <span class="navTrigger">
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+    </div>
+</nav>
+
+<section class="home">
+</section>
+
+
+<!-- Jquery needed -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/scripts.js"></script>
+
+<!-- Function used to shrink nav bar removing paddings and adding black background -->
+<script>
+    $(window).scroll(function() {
+        if ($(document).scrollTop() > 50) {
+            $('.nav').addClass('affix');
+            console.log("OK");
+        } else {
+            $('.nav').removeClass('affix');
+        }
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   $('a[href*="#"]').on('click', function (e) {
+      e.preventDefault();
+
+      $('html, body').animate({
+         scrollTop: $($(this).attr('href')).offset().top
+      }, 500, 'linear');
+   });
+</script>

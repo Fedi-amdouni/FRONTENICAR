@@ -1,0 +1,170 @@
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+<div class="dropdown">
+    <select name="selectedClass" (change)="onClassChange(selectedClass)" [(ngModel)]="selectedClass" class="dropbtn">
+        <option value="" selected disabled hidden>Choisir votre classe</option>
+        <option *ngFor="let class of classes" [ngValue]="class">{{ class.nom }}</option>
+    </select>
+</div>
+ 
+ <br>
+ <br>
+ <br>
+
+ <button id="etudiantsBtn"  style="position: relative ; left:100px" class="btn btn-1 btn-sep icon-user">Etudiants</button>
+ <button id="professeursBtn" style="position: relative ; left:400px" class="btn btn-1 btn-sep icon-user">Professeurs</button>
+ 
+ 
+ 
+  <table style="position: relative; left:20px" mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element['id']}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef> NOM </th>
+      <td mat-cell *matCellDef="let element"> {{element['nom']}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="prénom">
+      <th mat-header-cell *matHeaderCellDef> PRENOM </th>
+      <td mat-cell *matCellDef="let element"> {{element['prénom']}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="numTel">
+      <th mat-header-cell *matHeaderCellDef> NUMTEL </th>
+      <td mat-cell *matCellDef="let element"> {{element['numTel']}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="adrMail">
+      <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+      <td mat-cell *matCellDef="let element"> {{element['adrMail']}} </td>
+    </ng-container>
+    <ng-container matColumnDef="matiere" >
+        <th mat-header-cell *matHeaderCellDef> MATIERE </th>
+        <td mat-cell *matCellDef="let element"> {{element['matiere']}} </td>
+      </ng-container>
+      <ng-container  matColumnDef="modification">
+        <th mat-header-cell *matHeaderCellDef> MODIFICATION
+          
+        <td  mat-cell *matCellDef="let i">
+          <ng-template #content let-modal>
+            <div  class="modal-header">
+  
+              <button style="width:15%;height:15% ; color:aliceblue"  type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()">
+                <hr>
+                <pre >{{ closeResult }}</pre>
+                <mat-icon>delete</mat-icon></button>
+            </div>
+            <div  class="modal-body">
+              <form [formGroup]="updateUserForm">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="label" for="name">Id de l'utilisateur</label>
+                      <input formControlName="id" type="text" class="form-control" name="Id" id="Id" placeholder="Id ">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="label" for="name">Nom de l'utilisateur</label>
+                      <input formControlName="nom" type="text" class="form-control" name="name" id="name" placeholder="Nom ">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="label" for="prenom">Prénom de l'utilisateur</label>
+                      <input formControlName="prénom" type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="label" for="email">Email de l'utilisateur</label>
+                      <input formControlName="adrMail" type="text" class="form-control" name="email" id="adrMail" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="label" for="ecole">Role </label>
+                      <input formControlName="role" type="text" class="form-control" name="role" id="role" placeholder="Role">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="label" for="num_tel">Numéro de téléphone</label>
+                      <input formControlName="numTel" type="number" class="form-control" name="num_tel" id="numTel" placeholder="Numéro de téléphone">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="label" for="age">Mot de passe </label>
+                      <input formControlName="password" type="text" class="form-control" name="age" id="motDePasse" placeholder="Mot de passe">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="label" for="age">Matière</label>
+                      <input formControlName="matiere" type="text" class="form-control" name="age" id="matiere" placeholder="Matière">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="classes">Classes</label>
+                    <select class="form-control" id="classes" formControlName="classes" multiple>
+                        <option *ngFor="let class of classes" [value]="class">{{ class.nom }}</option>
+                      </select>
+                  </div>
+                  <br>
+                
+               
+
+                  
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button  (click)="update(i.id)"  type="button" class="btn btn-outline-dark"  >Save</button>
+            </div>
+          </ng-template>
+  
+          <button style="width:5%;position: relative ;right:25px;" class="btn btn-lg btn-outline-primary" (click)="open(content)">
+            <hr>
+            <pre >{{ closeResult }}</pre>
+            <mat-icon>edit</mat-icon>
+          </button>
+          
+        </td>
+      </ng-container>
+      <ng-container  matColumnDef="suppression">
+        <th mat-header-cell *matHeaderCellDef >SUPPRESSION
+          
+        </th>
+        <td mat-cell *matCellDef="let i ">
+          <button mat-icon-button class="removeCart" (click)="removeUser(i.id)" >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+     
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  
+  

@@ -1,0 +1,95 @@
+<!-- This is a reverse engineering of the "Hyperspace"
+     design from HTML5 Up! https://html5up.net/hyperspace -->
+     <link  href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+     <main class="main">
+        <aside class="sidebar">
+            <br>
+            <img style="position: relative; left:11px" src="http://www.enicarthage.rnu.tn/assets/images/logo.png">
+            <br>
+        <br>
+        <div style="position: relative; left:11px" class=" font-size-xs line-height-xs">Menu</div> 
+        <br>
+        
+          <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
+            <a href="/home" class="nav-link">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+              <span style="position: relative; top:-4px" >
+                Acceuil
+              </span>
+            </a>
+          </li>
+         <br>
+          <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
+            <a href="/home/listClasses"    class="nav-link">
+              <mat-icon>group</mat-icon>
+              <span style="position: relative; top:-4px" >
+                Voir les Classes
+              </span>
+            </a>
+          </li>
+         <br *ngIf="isProfesseur || isEtudiant">
+         
+         
+          <li class="nav-item nav-item-submenu" style="position: relative; left:15px">
+            <a *ngIf="isProfesseur || isEtudiant"  href="/home/listNotes" class="nav-link">
+              <mat-icon>score</mat-icon>
+              <span style="position: relative; top:-4px" >
+                Notes
+              </span>
+              
+            </a>
+          </li>
+          
+          <br *ngIf="isProfesseur || isEtudiant">
+          <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
+            <a *ngIf="isProfesseur" href="/home/rendreNotes" class="nav-link">
+              <mat-icon>grading</mat-icon>
+              <span  style="position: relative; top:-4px" >
+                Attribuer les notes
+              </span>
+            </a>
+          </li>
+
+          <br>
+          <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
+            <a *ngIf="isAdmin"  href="/home/addClass" class="nav-link">
+              <mat-icon>group</mat-icon>
+              <span  style="position: relative; top:-4px" >
+                Ajouter une Classe
+              </span>
+            </a>
+          </li>
+          <br>
+
+          
+          <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
+            <a *ngIf="isAdmin" href="/home/addUser" class="nav-link">
+              <mat-icon>group</mat-icon>
+              <span  style="position: relative; top:-4px" >
+                Ajouter un utilisateur
+              </span>
+            </a>
+          </li>
+        
+
+
+          <br><br>
+          
+
+          <li class="nav-item nav-item-submenu"  style="position: relative; left:15px">
+            <a (click)="onSubmit1()" href="/login" class="nav-link">
+              <mat-icon>exit_to_app</mat-icon>
+              <span  style="position: relative; top:-4px" >
+                Déconnexion
+              </span>
+            </a>
+          </li>
+          
+          
+        
+        </aside>
+      
+       
+      </main>
+      

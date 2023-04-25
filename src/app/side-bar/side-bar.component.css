@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import '~font-awesome/css/font-awesome.css';
+
+html {
+  font-family: Arial;
+  font-size: 10px;
+  background: #5e42a6;
+  color:#FFF
+}
+.custom-icon {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 18px;
+  }
+.sidebar {
+  position: relative;
+  width: 18%;
+  height: 100vh;
+  background: #0f032e;
+  font-size: 1.35em;
+  color:#FFF;
+
+  list-style: none;
+  
+  
+}
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+.sidebar li::before {
+  content: none;
+  list-style: none;
+
+}
+
+.nav {
+  position: relative;
+  margin: 0 15%;
+  text-align: right;
+  top: 20%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  
+
+}

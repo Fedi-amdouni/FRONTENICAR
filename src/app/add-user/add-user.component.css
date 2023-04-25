@@ -1,0 +1,14 @@
+.mat-elevation-z8 {
+    margin-left: 150px;
+  }
+
+.mb-4{
+    color:midnightblue
+}
+
+.input{
+    border-radius: 20px;
+}
+.wrapper {
+    margin-left: 150px; /* adjust this value to move the form to the desired position */
+  }

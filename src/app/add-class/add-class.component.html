@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Contact Form 06</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ >
+
+</head>
+<body>
+  <section style="position: relative; right:90px ; bottom:20px" class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <div class="wrapper">
+            <div class="row no-gutters mb-5">
+              <div class="col-md-7">
+                <div class="contact-wrap w-100 p-md-5 p-4">
+                  <h3 class="mb-4">Ajouter une classe</h3>
+                  <div id="form-message-warning" class="mb-4"></div>
+
+                  <form  [formGroup]="addClassForm" id="contactForm" name="contactForm" class="contactForm">
+                    <div class="row">
+                      
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="label" for="prenom">Niveau du classe</label>
+                          <input formControlName="niveau" type="text" class="form-control" name="prenom" id="prenom" placeholder="Niveau">
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="label" for="email">Département du classe</label>
+                          <input formControlName="département" type="text" class="form-control" name="email" id="email" placeholder="Département">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="label" for="name">Nom du classe</label>
+                          <input formControlName="nom" type="text" class="form-control" name="name" id="name" placeholder="Nom ">
+                        </div>
+                      </div>
+                      
+                   
+
+                      <div class="col-md-12">
+                        <div style="position: relative;top:30px;left:250px" class="form-group">
+                          <button   type="submit"  class="btn btn-primary btn-block"  style="background-color: #1A4B93 ;  border: none" (click)="onSubmit1()" >Ajouter la classe </button>
+                          <div class="submitting"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-5 d-flex align-items-stretch">
+                <div id="map">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

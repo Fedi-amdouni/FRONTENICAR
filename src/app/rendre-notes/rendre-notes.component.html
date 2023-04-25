@@ -1,0 +1,69 @@
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+
+<div class="dropdown">
+    <select name="selectedClass" (change)="onClassChange(selectedClass)" [(ngModel)]="selectedClass" class="dropbtn">
+        <option value="" selected disabled hidden>Choisir votre classe</option>
+        <option *ngFor="let class of classes" [ngValue]="class">{{ class.nom }}</option>
+    </select>
+</div>
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 " tabindex="0">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element['id']}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef> NOM </th>
+      <td mat-cell *matCellDef="let element"> {{element['nom']}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="prénom">
+      <th mat-header-cell *matHeaderCellDef> PRENOM </th>
+      <td mat-cell *matCellDef="let element"> {{element['prénom']}} </td>
+    </ng-container>
+    <ng-container matColumnDef="noteCC">
+        <th mat-header-cell *matHeaderCellDef> NoteCC </th>
+        <td mat-cell *matCellDef="let element">
+          <input class="input" type="number" [(ngModel)]="element['noteCC']">
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="noteEXAM">
+        <th mat-header-cell *matHeaderCellDef> NoteEXAM </th>
+        <td mat-cell *matCellDef="let element">
+          <input [ngModelOptions]="{standalone: true}"  class="input" type="number" [(ngModel)]="element['noteEXAM']">
+        </td>
+
+      </ng-container>
+      
+  
+    
+    <tr class="tete" mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+    <tr class="ligne" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div class="container">
+    <button (click)="onSubmit1()" id="btn">
+        <p id="btnText">Submit</p>
+        
+    </button>
+</div>
+  
+  
+  
